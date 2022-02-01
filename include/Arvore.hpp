@@ -46,6 +46,7 @@ class Arvore{
         };
         void Inserir(int chave);
         int Pesquisar(int chave);
+        void Caminhar(No *no);
         void Remover(int chave);
         void Limpar();
 };

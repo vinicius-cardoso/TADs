@@ -150,6 +150,10 @@ void Arvore::PosOrdem(No *no){
     }
 }
 
+void Arvore::Caminhar(No *no){
+    PosOrdem(no);
+}
+
 void Arvore::ApagarRecursivamente(No *no){
     if (no != NULL){
         ApagarRecursivamente(no->esq);

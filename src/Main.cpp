@@ -35,25 +35,22 @@ void Stack(){
 
     cout << endl;
 }
-/* 
-void List(){
-    ListaArranjo l ;
 
-    cout << "---------------------" << endl;
-    cout << "Lista:" << endl;
+void List(){
+    ListaEncadeada l ;
 
     for(int i = 10; i < 20; i++)
-        l.InserirFinal(i);
+        l.InsereFinal(i);
 
-    l.RemoverPos(5);
+    l.RemovePosicao(5);
 
-    l.Imprimir();
+    l.Imprime();
     
     cout << "Tamanho: " << l.GetTamanho() << endl;
 
     cout << endl;
 }
- */
+
 void Tree(){
     Arvore a;
 
@@ -69,7 +66,7 @@ void Tree(){
 
     cout << "Percorrendo em ordem..." << endl;
 
-    a.EmOrdem(a.GetRaiz());
+    a.Caminhar(a.GetRaiz());
 
     cout << endl << endl;
 }
@@ -88,7 +85,7 @@ int main(){
     cout << "---------------------" << endl;
     cout << "Lista:" << endl;
     cout << "---------------------" << endl;
-    // List();
+    List();
     
     cout << "---------------------" << endl;
     cout << "Arvore:" << endl;
