@@ -1,10 +1,10 @@
 #include "Pilha.hpp"
 #include "Fila.hpp"
-#include "Lista.hpp"
+// #include "Lista.hpp"
 #include "Arvore.hpp"
 
 void Queue(){
-    Fila f;
+    Fila<int> f;
 
     int valor = 0;
 
@@ -19,40 +19,55 @@ void Queue(){
     cout << "Final: " << f.GetFinal() << endl;
 
     cout << endl;
+
+    Fila<char> f_char;
+
+    char a = 'a';
+    char b = 'b';
+    char c = 'c';
+
+    f_char.Remover(b);
+
+    f_char.Imprimir();
+
+    cout << "Inicio: " << f_char.GetInicio() << endl;
+    cout << "Final: " << f_char.GetFinal() << endl;
+
+    cout << endl;
 }
 
 void Stack(){
-    Pilha p;
+    Pilha<int> p_int;
 
     for(int i = 10; i < 20; i++)
-        p.Empilhar(i);
+        p_int.Empilhar(i);
 
-    p.Desempilhar();
+    p_int.Desempilhar();
 
-    p.Imprimir();
+    p_int.Imprimir();
     
-    cout << "Topo: " << p.GetTopo() << endl;
+    cout << "Topo: " << p_int.GetTopo() << endl;
 
     cout << endl;
 }
 
-void List(){
-    ListaEncadeada l ;
+// void List(){
+//     Lista<int> l;
 
-    for(int i = 10; i < 20; i++)
-        l.InsereFinal(i);
+//     for(int i = 10; i < 20; i++)
+//         l.InsereFinal(i);
 
-    l.RemovePosicao(5);
+//     l.RemovePosicao(5);
 
-    l.Imprime();
+//     l.Imprime();
     
-    cout << "Tamanho: " << l.GetTamanho() << endl;
+//     cout << "Tamanho: " << l.GetTamanho() << endl;
 
-    cout << endl;
-}
+//     cout << endl;
+// }
 
 void Tree(){
-    Arvore a;
+    Arvore<int> a;
 
     a.Inserir(8);
     a.Inserir(10);
@@ -85,7 +100,7 @@ int main(){
     cout << "---------------------" << endl;
     cout << "Lista:" << endl;
     cout << "---------------------" << endl;
-    List();
+    // List();
     
     cout << "---------------------" << endl;
     cout << "Arvore:" << endl;
