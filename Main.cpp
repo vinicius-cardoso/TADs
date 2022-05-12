@@ -1,14 +1,14 @@
-#include "Pilha.hpp"
 #include "Fila.hpp"
+#include "Pilha.hpp"
 // #include "Lista.hpp"
 #include "Arvore.hpp"
 
-void Queue(){
+void Queue() {
     Fila<int> f;
 
     int valor = 0;
 
-    for(int i = 10; i < 20; i++)
+    for (int i = 10; i < 20; i++)
         f.Adicionar(i);
 
     f.Remover(valor);
@@ -36,16 +36,16 @@ void Queue(){
     cout << endl;
 }
 
-void Stack(){
+void Stack() {
     Pilha<int> p_int;
 
-    for(int i = 10; i < 20; i++)
+    for (int i = 10; i < 20; i++)
         p_int.Empilhar(i);
 
     p_int.Desempilhar();
 
     p_int.Imprimir();
-    
+
     cout << "Topo: " << p_int.GetTopo() << endl;
 
     cout << endl;
@@ -60,13 +60,13 @@ void Stack(){
 //     l.RemovePosicao(5);
 
 //     l.Imprime();
-    
+
 //     cout << "Tamanho: " << l.GetTamanho() << endl;
 
 //     cout << endl;
 // }
 
-void Tree(){
+void Tree() {
     Arvore<int> a;
 
     a.Inserir(8);
@@ -83,15 +83,16 @@ void Tree(){
 
     a.Caminhar(a.GetRaiz());
 
-    cout << endl << endl;
+    cout << endl
+         << endl;
 }
 
-int main(){
+int main() {
     cout << "---------------------" << endl;
     cout << "Fila:" << endl;
     cout << "---------------------" << endl;
     Queue();
-    
+
     cout << "---------------------" << endl;
     cout << "Pilha:" << endl;
     cout << "---------------------" << endl;
@@ -101,7 +102,7 @@ int main(){
     cout << "Lista:" << endl;
     cout << "---------------------" << endl;
     // List();
-    
+
     cout << "---------------------" << endl;
     cout << "Arvore:" << endl;
     cout << "---------------------" << endl;
