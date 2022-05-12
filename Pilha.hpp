@@ -3,84 +3,87 @@
 
 #include <iostream>
 
-#define TAM 99
-
 using namespace std;
 
-template <typename T> 
-class Pilha{
-    private:
-        T *pilha;
-        T topo;
+template <class T>
+class Pilha;
 
-    public:
-        Pilha();
-        ~Pilha();
-        void Empilhar(T elem);       
-        void Desempilhar();
-        T GetTopo();
-        void Imprimir();
-        bool IsVazia();
-        bool IsCheia();
+template <class T>
+class No {
+   private:
+    T dado;
+    No<T> *prox;
+    No();
+    No(T item);
+
+    friend class Pilha<T>;
 };
 
 template <class T>
-Pilha<T>::Pilha(){
-    pilha = new T[100];
-    topo = -1;
+No<T>::No() {
+    prox = NULL;
 }
 
 template <class T>
-Pilha<T>::~Pilha(){
-    delete[] pilha;
+No<T>::No(T item) {
+    dado = item;
+    prox = NULL;
 }
 
 template <class T>
-void Pilha<T>::Empilhar(T elem){
-    if(IsCheia())
-        cout << "Pilha cheia!" << endl;
-    else
-        pilha[++topo] = elem; // incrementa e depois utiliza o valor de topo
+class Pilha {
+   private:
+    No<T> *topo;
+    int tamanho;
+
+   public:
+    Pilha();
+    No<T> Empilhar(T item);
+    void Desempilhar();
+    bool IsVazia();
+    int GetTamanho();
+};
+
+template <class T>
+Pilha<T>::Pilha() {
+    topo = new No<T>;
+    topo->prox = topo;
+    tamanho = 0;
 }
 
 template <class T>
-void Pilha<T>::Desempilhar(){
-    if(IsVazia())
-        cout << "Pilha vazia!" << endl;
-    else
-        topo--;
+No<T> Pilha<T>::Empilhar(T item) {
+    No<T> *aux = new No<T>(item);
+
+    topo->prox = aux;
+    aux->prox = topo->prox;
+    topo->prox = aux;
+
+    tamanho++;
+
+    return *aux;
 }
 
 template <class T>
-T Pilha<T>::GetTopo(){
-    if(topo != -1)
-        return pilha[topo];
-    
-    return -1;
+void Pilha<T>::Desempilhar() {
+    if (topo != NULL) {
+        No<T> *aux = topo;
+        topo = topo->prox;
+
+        delete aux;
+
+        tamanho--;
+    }
 }
 
 template <class T>
-void Pilha<T>::Imprimir(){
-    for(int i = 0; i < topo; i++)
-        cout << pilha[i] << " ";
-    
-    cout << endl;
+bool Pilha<T>::IsVazia() {
+    return (tamanho == 0);
 }
 
 template <class T>
-bool Pilha<T>::IsVazia(){
-    if(topo == -1)
-        return true;
-    else
-        return false;
-}
-
-template <class T>
-bool Pilha<T>::IsCheia(){
-    if(topo == TAM)
-        return true;
-    else
-        return false;
+int Pilha<T>::GetTamanho() {
+    return tamanho;
 }
 
 #endif
